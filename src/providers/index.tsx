@@ -4,7 +4,11 @@ import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import {mapping} from '@eva-design/eva';
 import {ThemeContext, themes} from '../themes';
 
-const AppProvider = () => {
+type ProviderProps = {
+  children: React.ReactNode;
+};
+
+const AppProvider = ({children}: ProviderProps) => {
   const [theme, setTheme] = React.useState(themes.cvd19);
 
   const toggleTheme = () => {
@@ -16,7 +20,7 @@ const AppProvider = () => {
       <IconRegistry icons={EvaIconsPack} />
       <ThemeContext.Provider value={{theme, toggleTheme}}>
         <ApplicationProvider mapping={mapping} theme={theme}>
-          {Children}
+          {children}
         </ApplicationProvider>
       </ThemeContext.Provider>
     </React.Fragment>
