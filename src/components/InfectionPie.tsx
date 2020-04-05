@@ -46,25 +46,16 @@ const InfectionPie: React.FC<IPieProps> = ({
   deaths = data.deaths,
   critical = data.critical,
 }) => {
-  const theme = useTheme();
   const getPercentage = (cases: number) => (cases / total) * 100;
-  const Header = () => (
-    <CardHeader
-      title={total.toString()}
-      description="Total Cases"
-      headerStyle={{margin: 40}}
-    />
-  );
   return (
-    <Layout style={{marginTop: 20, width: '80%'}}>
-      <Text category="h3">Infection Gauges</Text>
+    <Layout style={{marginTop: 20, width: '90%'}}>
       <Card style={styles.card} status="danger">
         <Layout style={styles.container}>
           <Layout style={styles.header}>
             <Text status="info" category="h5">
               Total Cases {country ? `in ${country}` : ''}
             </Text>
-            <Text status="danger" category="h4">
+            <Text status="danger" category="h3">
               {total.toString()}
             </Text>
           </Layout>
@@ -97,6 +88,9 @@ const InfectionPie: React.FC<IPieProps> = ({
           />
           <Layout style={styles.pill}>
             <CasePill value={deaths} type="deaths" />
+            <CasePill value={critical} type="critical" />
+            <CasePill value={active} type="active" />
+            <CasePill value={recovered} type="recovered" />
           </Layout>
         </Layout>
       </Card>
@@ -109,8 +103,9 @@ export default InfectionPie;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    justifyContent: 'space-between',
+    textAlign: 'center',
     flexDirection: 'column',
+    width: '100%',
   },
   card: {
     marginVertical: 8,
@@ -125,7 +120,9 @@ const styles = StyleSheet.create({
   pill: {
     width: '100%',
     flexDirection: 'row',
-    alignItems: 'baseline',
-    marginTop: 5,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    flexWrap: 'wrap',
+    marginTop: 10,
   },
 });
