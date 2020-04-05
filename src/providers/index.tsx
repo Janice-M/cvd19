@@ -3,6 +3,7 @@ import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import {mapping} from '@eva-design/eva';
 import {ThemeContext, themes} from '../themes';
+import {AssetIconsPack} from './CustomIconRegistry';
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -17,7 +18,7 @@ const AppProvider = ({children}: ProviderProps) => {
 
   return (
     <React.Fragment>
-      <IconRegistry icons={EvaIconsPack} />
+      <IconRegistry icons={[EvaIconsPack, AssetIconsPack]} />
       <ThemeContext.Provider value={{theme, toggleTheme}}>
         <ApplicationProvider mapping={mapping} theme={theme}>
           {children}
