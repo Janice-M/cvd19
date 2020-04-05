@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@eva-design/eva": "^1.4.0",
+    "@react-native-community/art": "^1.2.0",
     "@react-navigation/bottom-tabs": "^5.2.5",
     "@react-navigation/native": "^5.1.4",
     "@ui-kitten/components": "4.4.1",
@@ -18,6 +19,7 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-app-intro-slider": "^4.0.0",
+    "react-native-pie": "^1.1.2",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.4.0",
     "react-native-svg": "^9.13.3"
