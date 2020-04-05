@@ -72,7 +72,7 @@ const InfectionPie: React.FC<IPieProps> = ({
             radius={80}
             innerRadius={50}
             sections={[
-              //death
+              //deaths
               {
                 percentage: getPercentage(deaths),
                 color: '#C70039',
