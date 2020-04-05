@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Text, Layout, CardHeader, Card, useTheme} from '@ui-kitten/components';
 import Pie from 'react-native-pie';
+import CasePill from './CasePill';
 
 interface IPieProps {
   /**
@@ -54,17 +55,14 @@ const InfectionPie: React.FC<IPieProps> = ({
       headerStyle={{margin: 40}}
     />
   );
-
-  const Cases = () => <></>;
-
   return (
     <Layout style={{marginTop: 20, width: '80%'}}>
       <Text category="h3">Infection Gauges</Text>
       <Card style={styles.card} status="danger">
         <Layout style={styles.container}>
           <Layout style={styles.header}>
-            <Text status="info" category="h4">
-              Total Cases
+            <Text status="info" category="h5">
+              Total Cases {country ? `in ${country}` : ''}
             </Text>
             <Text status="danger" category="h4">
               {total.toString()}
@@ -97,7 +95,9 @@ const InfectionPie: React.FC<IPieProps> = ({
             ]}
             strokeCap={'butt'}
           />
-          <Text status="danger">Hey</Text>
+          <Layout style={styles.pill}>
+            <CasePill value={deaths} type="deaths" />
+          </Layout>
         </Layout>
       </Card>
     </Layout>
@@ -123,6 +123,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   pill: {
-    backgroundColor: 'aqua',
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginTop: 5,
   },
 });
